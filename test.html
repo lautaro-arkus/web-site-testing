@@ -2,23 +2,5 @@
 height="600"
 width="80%"
 src="https://jvsla.my.site.com/s/zoom-webinar-registration"
-sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
+sandbox="allow-scripts allow-same-origin allow-forms">
 </iframe>
-<script>
-// Send data TO Salesforce
-const message = {
-    action: "form_submission",
-    status: "success",
-    payload: { username: "JohnDoe" }
-};
-
-window.parent.postMessage(message, "https://jvsla.my.site.com");
-
-// Listen for messages coming FROM Salesforce
-window.addEventListener("message", (event) => {
-    if (event.origin !== "https://jvsla.my.site.com") {
-        return;
-    }
-    console.log("Salesforce sent us:", event.data);
-});
-</script>
